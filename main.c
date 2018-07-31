@@ -19,12 +19,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 #define STREQ(x, z) (0 == (strcmp(x, z)))
 
 int main(int argc, char *argv[]) {
-  int x = 2, base = 10;
+  int x = 2, to_base = 10;
   char *from_base = NULL;
 
   if (1 == argc || 2 == argc) {
@@ -34,13 +33,13 @@ int main(int argc, char *argv[]) {
   from_base = argv[1];
 
   for (; x < argc; x++) {
-    if (STREQ("binary",  from_base)) base = 2;
-    if (STREQ("octal",   from_base)) base = 8;
-    if (STREQ("decimal", from_base)) base = 10;
-    if (STREQ("hex",     from_base)) base = 16;
-    if (STREQ("36",      from_base)) base = 36;
+    if (STREQ("binary",  from_base)) to_base = 2;
+    if (STREQ("octal",   from_base)) to_base = 8;
+    if (STREQ("decimal", from_base)) to_base = 10;
+    if (STREQ("hex",     from_base)) to_base = 16;
+    if (STREQ("36",      from_base)) to_base = 36;
 
-    printf("%lld\n", strtoll(argv[x], (char **)NULL, base));
+    printf("%lld\n", strtoll(argv[x], (char **)NULL, to_base));
   }
 
   return EXIT_SUCCESS;
