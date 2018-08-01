@@ -32,12 +32,13 @@ int main(int argc, char *argv[]) {
   }
   from_base = argv[1];
 
-  if (STREQ("binary",  from_base)) to_base = 2;
-  if (STREQ("octal",   from_base)) to_base = 8;
-  if (STREQ("decimal", from_base)) to_base = 10;
-  if (STREQ("hex",     from_base)) to_base = 16;
-  if (STREQ("36",      from_base)) to_base = 36;
+  if (STREQ("binary",  from_base)) {to_base = 2;  goto run_it;}
+  if (STREQ("octal",   from_base)) {to_base = 8;  goto run_it;}
+  if (STREQ("decimal", from_base)) {to_base = 10; goto run_it;}
+  if (STREQ("hex",     from_base)) {to_base = 16; goto run_it;}
+  if (STREQ("36",      from_base)) {to_base = 36;}
 
+run_it:
   for (; x < argc; x++) {
     printf("%lld\n", strtoll(argv[x], (char **)NULL, to_base));
   }
