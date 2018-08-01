@@ -1,5 +1,5 @@
 # charcodez
-Convert string to the following bases: `octal, binary, decimal, hex, 36` and return the char code.
+Convert string from the following bases: `octal, binary, decimal, hex, 36` and return the char code.
 
 # Usage
 
@@ -13,7 +13,7 @@ $> 3735928559
 
 # Installation
 
-```make
+```c
 $ make
 # make install
 ```
